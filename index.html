@@ -1,0 +1,185 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial
+scale=1.0"> 
+<title>Home - Personal Website</title> 
+<link rel="stylesheet" href="style.css"> 
+</head> 
+<body> 
+<header> 
+<h1>Welcome to My Personal Website</h1> 
+</header> 
+<nav> 
+<ul> 
+<li><a href="index.html">HOME</a></li> 
+<li class="dropdown"> 
+<a href="#" class="dropbtn">ABOUT</a> 
+<div class="dropdown-content"> 
+<a href="skills.html">Skills I'm Developing</a> 
+<a href="goals.html">My Goals as a Student</a> 
+<a href="funfacts.html">Fun Facts About Me</a> 
+</div> 
+</li> 
+<li><a href="gallery.html">GALLERY</a></li> 
+<li><a href="contact.html">CONTACT</a></li> 
+<a href="javascript:void(0);" class="logout-button" onclick="confirmLogout()">LOG OUT</a>
+</ul> 
+</nav> 
+<section id="section2"></section> 
+<div class="slider"> 
+<div class="slides"> 
+<div class="slide"> 
+<img src="Screenshot 2025-10-30 205020.png" alt="MyBackground"> 
+<div class="text-overlay"><h1> Welcome to my Website! 
+</h1></div> 
+</div> 
+<div class="slide"> 
+<img src="Green River.png" alt="Beautiful View in Hightest Pick Of The Mountainse"> 
+<div class="text-overlay"><h1></h1></div> 
+</div> 
+<div class="slide"> 
+<img src="Paradise.png" alt="Beautiful View in Hightest Pick Of The Mountainse"> 
+<div class="text-overlay"><h1></h1></div> 
+</div> 
+</div> 
+</div> 
+<section id="drop"> 
+<h2>Fun Facts About Me</h2> 
+<p>Welcome to my Fun Facts About Me! Here, you'll get a 
+glimpse into my passions, interests, and the little quirks that 
+make me who I am. </p> 
+<div class="funfact-container"> 
+<div class="funfact-card"> 
+<div class="funfact-inner"> 
+<div class="funfact-front"> 
+<p>Proverb 3:6</p> 
+</div> 
+<div class="funfact-back"> 
+<p>"Put God first, and he will direct you and crown your efforts with success"</p> 
+</div> 
+</div> 
+</div> 
+<div class="funfact-card"> 
+<div class="funfact-inner"> 
+<div class="funfact-front"> 
+<p>I'm a nature lover</p> 
+</div> 
+<div class="funfact-back">
+<p> In autumn, leaves turn red or purple because cool nights trigger the production of anthocyanins.</p> 
+</div> 
+</div> 
+</div> 
+<div class="funfact-card"> 
+<div class="funfact-inner"> 
+<div class="funfact-front"> 
+<p>Stay focus </p> 
+</div> 
+<div class="funfact-back"> 
+<p>“Focus is the best tool for self‑improvement”</p> 
+</div> 
+</div> 
+</div> 
+<div class="funfact-card"> 
+<div class="funfact-inner"> 
+<div class="funfact-front"> 
+<p>Watching tutorials</p> 
+</div> 
+<div class="funfact- back"> 
+<p>The way I’m watching tutorials is that I’m learning more lessons.</p> 
+</div> 
+</div> 
+</div> 
+</div> 
+<!-- See More Button --> 
+<div class="see-more-container"> 
+<a href="funfacts.html" class="see-more-button">See More Funfacts about me...</a> 
+</div> 
+</section> 
+<div class="container"> 
+<div class="image-section"> 
+<img src="Son.jpg" alt="Son's Image"> 
+</div> 
+<div class="quote-section"> 
+<h1>Hi, I'm Jeson!</h1> 
+<p>I’m an Information Technology student with a passion for front‑end web development. 
+I’m excited to explore the ever‑evolving world of technology and build impactful projects. 
+I also enjoy graphic design and am always eager to learn and innovate. In programming, 
+I’m interested in web development, facing technology every day, 
+and enhancing my skills in this field.</p> 
+<blockquote><strong>"Great work comes from loving what you do."</strong></blockquote> 
+</div> 
+</div> 
+<footer> 
+<p> <strong>&copy; 2025 Jeson Baliguat BSIT-2B. All rights reserved.</strong></p> 
+</footer> 
+<div class="footer-divider"></div> <!-- Orange line --> 
+<!-- Lightbox Container --> 
+<div id="lightbox" class="lightbox" onclick="closeLightbox()"> 
+<span class="close" onclick="event.stopPropagation(); closeLightbox()">&times;</span> 
+<img class="lightbox-content" id="lightboxImage" src=""> 
+</div> 
+<!-- Embedded JavaScript --> 
+<script> 
+const slides = document.querySelector('.slides'); 
+let index = 0; 
+function showNextSlide() { 
+index = (index + 1) % 3; 
+slides.style.transform = 'translateX(' + (-index * 100) + '%)'; 
+} 
+setInterval(showNextSlide, 3000); // Change slide every 3 seconds 
+function openLightbox(imageSrc) { 
+const lightbox = document.getElementById('lightbox'); 
+const lightboxImage = document.getElementById('lightboxImage'); 
+lightboxImage.src = imageSrc; 
+lightbox.style.display = 'block';
+// Hide header and nav 
+document.querySelector('header').style.display = 'none';   
+// Hides the header 
+document.querySelector('nav').style.display = 'none';   
+// Hides the nav 
+} 
+function closeLightbox() { 
+const lightbox = document.getElementById('lightbox'); lightbox.style.display = 'none';  
+// Show header and nav 
+document.querySelector('header').style.display = 'block';   
+// Shows the header 
+document.querySelector('nav').style.display = 'flex'; // Shows the nav 
+} 
+document.addEventListener('DOMContentLoaded', function () { 
+const logoutButton = document.querySelector('.logout-button. dropbtn'); 
+const logoutDropdown = document.querySelector('.logout dropdown');  
+
+// Toggle dropdown visibility on button click 
+logoutButton.addEventListener('click', function () { 
+logoutDropdown.style.display = logoutDropdown.style.display === 'block' ? 'none' : 'block'; 
+});  
+// Close dropdown if clicking outside of it 
+window.addEventListener('click', function (event) { 
+if (!event.target.matches('.dropbtn')) { 
+if (logoutDropdown.style.display === 'block') { 
+logoutDropdown.style.display  = 'none'; 
+} 
+} 
+}); 
+});  
+</script> 
+<script> 
+// Logout function with confirmation 
+function confirmLogout() { 
+// Show a confirmation message to the user 
+const confirmLogout = confirm("Are you sure you want to log out?"); 
+// If the user confirms, proceed with logging out 
+if (confirmLogout) { 
+// Mark the user as logged out in localStorage (if used) 
+localStorage.removeItem('isLoggedIn'); // Or any other keys related to login credentials 
+// Redirect to the login page 
+window.location.href = 'login.html'; 
+} else { 
+// If the user cancels, do nothing 
+return; 
+}  
+}</script> 
+</body> 
+</html>

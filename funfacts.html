@@ -1,0 +1,147 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial
+scale=1.0"> 
+<title>Fun Facts About Me</title> 
+<link rel="stylesheet" href="style.css"> 
+</head> 
+<body> 
+<header> 
+<h1>Welcome to My Personal Website</h1> 
+</header> 
+<nav> 
+<ul> 
+<li><a href="index.html">HOME</a></li> 
+<li class="dropdown"> 
+<a href="#" class="dropbtn">ABOUT</a> 
+<div class="dropdown-content"> 
+<a href="skills.html">Skills I'm Developing</a> 
+<a href="goals.html">My Goals as a Student</a> 
+<a href="funfacts.html">Fun Facts About Me</a> 
+</div> 
+</li> 
+<li><a href="gallery.html">GALLERY</a></li> 
+<li><a href="contact.html">CONTACT</a></li> 
+<a href="javascript:void(0);" class="logout-button" 
+onclick="confirmLogout()">LOG OUT</a> 
+</ul> 
+</nav> 
+<section id="section2"></section> 
+<section id="drop"> 
+<h2>Fun Facts About Me</h2> 
+<p>Hello and welcome! This section is all about the fun and 
+fascinating tidbits that define me. 
+Discover my enthusiasm for coding, my quest to find the best 
+coffee spots, and the hobbies that bring joy to my life. 
+Whether it's mixing music with programming or setting 
+ambitious goals, these fun facts offer a sneak peek into my 
+world. </p> 
+<div class="funfact-container"> 
+<div class="funfact-card"> 
+<div class="funfact-inner"> 
+<div class="funfact-front"> 
+<p>Proverb 3:6</p> 
+</div> 
+<div class="funfact-back"> 
+<p>"Put God first, and he will direct you and crown your efforts with success"</p> 
+</div> 
+</div> 
+</div> 
+<div class="funfact-card"> 
+<div class="funfact-inner"> 
+<div class="funfact-front"> 
+<p>I'm a nature lover</p> 
+</div> 
+<div class="funfact-back"> 
+<p>In autumn, leaves turn red or purple because cool nights trigger the production of anthocyanins.</p> 
+</div> 
+</div> 
+</div> 
+<div class="funfact-card"> 
+<div class="funfact-inner"> 
+<div class="funfact-front"> 
+<p>Stay focus</p> 
+</div> 
+<div class="funfact-back"> 
+<p>“Focus is the best
+     tool for 
+    self‑
+    improvement”</p> 
+</div></div></div> 
+<div class="funfact-card"> 
+<div class="funfact-inner">
+<div class="funfact-front"> 
+<p>Watching tutorials</p> 
+</div> 
+<div class="funfact-back"> 
+<p>The way I’m watching tutorials is that I’m learning more lessons.</p> 
+</div></div></div></div> 
+<div class="funfact-container"> 
+<div class="funfact-card"> 
+<div class="funfact-inner"> 
+<div class="funfact-front"> 
+<p>I love music</p> 
+</div> 
+<div class="funfact-back"> 
+<p>Music is my stress reliever while coding.</p> 
+</div> 
+</div> 
+</div> 
+<div class="funfact-card"> 
+<div class="funfact-inner"> 
+<div class="funfact-front"> 
+<p>I love programming</p> 
+</div> 
+<div class="funfact-back"> 
+<p>Programming is very exciting when you fixed the error and there function</p> 
+</div> 
+</div> 
+</div> 
+<div class="funfact-card"> 
+<div class="funfact-inner"> 
+<div class="funfact-front"> 
+<p>Motivated + Self discipline</p> 
+</div> 
+<div class="funfact-back"> 
+<p>Motivation and 
+    Self discipline is the 
+    best combo in programming development</p> 
+</div> 
+</div> 
+</div> 
+<div class="funfact-card"> 
+<div class="funfact-inner"> 
+<div class="funfact-front"> 
+<p>I love coding</p> 
+</div> 
+<div class="funfact-back"> 
+<p>“Coding is love in its purest form every line you write is a promise to create something beautiful.”</p> 
+</div> 
+</div></div></div></div> 
+</section> 
+<!-- Embedded JavaScript --> 
+<script> 
+// Logout function with confirmation 
+function confirmLogout() { 
+// Show a confirmation message to the user 
+const confirmLogout = confirm("Are you sure you want to log out?"); 
+// If the user confirms, proceed with logging out 
+if (confirmLogout) { 
+// Mark the user as logged out in localStorage (if used) 
+localStorage.removeItem('isLoggedIn'); // Or any other keys related to login credentials 
+// Redirect to the login page 
+window.location.href = 'login.html'; 
+} else { 
+// If the user cancels, do nothing 
+return; 
+} 
+} 
+</script> 
+<footer> 
+<p><strong>&copy; 2025 Jeson Baliguat BSIT 2B. All rights reserved.</strong></p> 
+</footer> 
+<div class="footer-divider"></div> <!-- Orange line --> 
+</body> 
+</html>

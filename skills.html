@@ -1,0 +1,134 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial
+scale=1.0"> 
+<title>Skills I'm Developing</title> 
+<link rel="stylesheet" href="style.css"> 
+</head> 
+<body> 
+<header> 
+<h1>Welcome to My Personal Website</h1> 
+</header> 
+<nav> 
+<ul> 
+<li><a href="index.html">HOME</a></li> 
+<li class="dropdown"> 
+<a href="#" class="dropbtn">ABOUT</a> 
+<div class="dropdown-content"> 
+<a href="skills.html">Skills I'm Developing</a> 
+<a href="goals.html">My Goals as a Student</a> 
+<a href="funfacts.html">Fun Facts About Me</a> 
+</div> 
+</li> 
+<li><a href="gallery.html">GALLERY</a></li> 
+<li><a href="contact.html">CONTACT</a></li> 
+<a href="javascript:void(0);" class="logout-button" 
+onclick="confirmLogout()">LOG OUT</a> 
+</ul> 
+</nav> 
+<section id="section2"></section> 
+<section id="drop"> 
+<h2>Skills I'm Developing</h2> 
+<p>As a student, I’m actively developing a diverse set of skills 
+that reflect my passions in technology and beyond.</p> 
+<section id="skills"> 
+<div class="tab"> 
+<button class="tablinks" onclick="openTab(event, 
+'IT')">Information Technology</button> 
+<button class="tablinks" onclick="openTab(event, 'GraphicDesign')">Web Development</button> 
+<button class="tablinks" onclick="openTab(event, 'PublicSpeaking')">Coding Skills</button> 
+<button class="tablinks" onclick="openTab(event, 'ProblemSolving')">Problem Solving</button> 
+</div> 
+<div id="IT" class="tabcontent"> 
+<h3>Information Technology</h3> 
+<ul> 
+<li>I am mastering front‑end web development with HTML, CSS, and JavaScript to build 
+     a solid foundation for a career in the IT field.</strong></li> 
+<li>Learning <strong>responsive design</strong> to create 
+user-friendly experiences across devices</li> 
+<li> I create modern, accessible web interfaces with simple design and AI features that help users. </li>
+<li>I’ll build a system that leverages analytical thinking, strong problem‑solving skills, and a clear vision to deliver efficient, user‑focused solutions. </li> 
+</ul> 
+</div> 
+<div id="GraphicDesign" class="tabcontent" 
+style="display:none;"> 
+<h3>Web Delopment</h3> 
+<ul> 
+<li>Mastery of HTML, CSS, and JavaScript enables me to
+     build responsive, interactive user interfaces.</li> 
+<li>Understanding server‑side languages such as Node.js or Python allows me to develop robust
+     back‑end services and APIs</li> 
+<li> Make the design responsive so it works on any device.</li> 
+</ul> 
+</div> 
+<div id="PublicSpeaking" class="tabcontent" 
+style="display:none;">
+<h3>Learn coding</h3> 
+<ul> 
+<li>I learn every day on how to code in different programming language</li> 
+<li>I keep a notebook of the code fragments that I discover.</li> 
+ <li>Reviewing yesterday’s code helps me improve faster than starting from scratch.</li>
+</ul> 
+</div> 
+<div id="ProblemSolving" class="tabcontent" 
+style="display:none;"> 
+<h3>Problem Solving and Critical Thinking</h3> 
+<ul> 
+<li>Enhancing analytical skills through coding challenges and 
+project-based learning</li> 
+<li>Focusing on efficient solutions and optimizing workflows in 
+web development</li> 
+<li>Building a structured approach to tackling complex problems using effective problem‑solving methods.</li> 
+<li>Designing a systematic framework for dissecting intricate challenges with sharp analytical reasoning and a clear vision.</li>
+</ul> 
+</div> 
+</section> 
+</section> 
+<footer> 
+<p><strong>&copy; 2025 Your Name. All rights reserved.</strong></p> 
+</footer> 
+<div class="footer-divider"></div> <!-- Orange line --> 
+<!-- Embedded JavaScript --> 
+<script> 
+function openTab(evt, tabName) { 
+// Get all tab content elements 
+const tabcontents = document.getElementsByClassName("tabcontent"); 
+// Hide all tab content 
+for (let i = 0; i < tabcontents.length; i++) { 
+tabcontents[i].style.display = "none"; 
+} 
+// Remove "active" class from all tab links 
+const tablinks = document.getElementsByClassName("tablinks"); 
+for (let i = 0; i < tablinks.length; i++) { 
+tablinks[i].classList.remove("active"); 
+} 
+// Show the current tab 
+document.getElementById(tabName).style.display = "block"; 
+evt.currentTarget.classList.add("active"); 
+} 
+// Initially show the first tab content 
+document.addEventListener("DOMContentLoaded", function() { 
+document.querySelector('.tablinks').click(); // Simulates a click on the first tab 
+}); 
+</script> 
+<script> 
+// Logout function with confirmation 
+function confirmLogout() { 
+// Show a confirmation message to the user 
+const confirmLogout = confirm("Are you sure you want to log out?"); 
+// If the user confirms, proceed with logging out 
+if (confirmLogout) { 
+// Mark the user as logged out in localStorage (if used) 
+localStorage.removeItem('isLoggedIn'); // Or any other keys related to login credentials 
+// Redirect to the login page 
+window.location.href = 'login.html'; 
+} else { 
+// If the user cancels, do nothing 
+return; 
+} 
+} 
+</script> 
+</body> 
+</html> 

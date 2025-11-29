@@ -1,0 +1,605 @@
+body { 
+font-family: Trebuchet MS, sans-serif; 
+margin: 0; 
+padding: 0; 
+background-color: #a1e7ec; 
+} 
+header { 
+background-color: #069afd;
+color: rgb(31, 30, 36); 
+padding: 10px; 
+text-align: center; 
+position: fixed; /* Changed to fixed */ 
+top: 0; 
+left: 0; /* Ensure it stretches across */ 
+width: 100%; /* Ensure it stretches across */ 
+z-index: 999; 
+font-family: Trebuchet MS, sans-serif; 
+} 
+nav { 
+position: fixed; /* Changed to fixed */ 
+top: 100px; /* Position below the header */ 
+left: 0; 
+width: 100%; 
+z-index: 999; 
+} 
+nav ul { 
+list-style-type: none; 
+padding: 0; 
+margin: 0; 
+display: flex; 
+justify-content: center; 
+background-color: #30bae4; 
+} 
+nav ul li { 
+margin: 0 15px; 
+} 
+nav ul li a { 
+text-decoration: none; 
+color: rgb(0, 0, 0); 
+font-weight: bold; 
+padding: 15px; 
+display: block; 
+font-size: 20px; 
+} 
+nav ul li a:hover { 
+background-color: #fbfdfd; 
+font-size: 20px; 
+color: #003cff; 
+} 
+/* Dropdown Styles */ 
+.dropdown-content { 
+display: none; 
+position: absolute; 
+background-color: #38c3ee; 
+box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); 
+min-width: 160px; 
+z-index: 1; 
+} 
+.dropdown:hover .dropdown-content { 
+display: block; 
+} 
+.dropdown-content a { 
+color: black; 
+padding: 12px 16px;
+text-decoration: none; 
+display: block; 
+} 
+/* Keep the ABOUT link active while hovering on the dropdown 
+*/ 
+.dropdown:hover .dropbtn { 
+background-color: #ffffff;  
+color: #003cff;  
+} 
+#drop { 
+padding: 20px 10px 15px 5px; /* Top, Right, Bottom, Left */ 
+} 
+#drop h2 { 
+text-align: center; 
+margin-bottom: 20px; 
+margin-top: 0; 
+font-size: 50px; 
+background: #1361d6; -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+} 
+#drop p { 
+text-align: center; 
+} 
+section { 
+padding: 50px; 
+margin: 100px 100px; /* Add top margin to prevent content 
+being hidden behind the fixed header and nav */ 
+background-color: white; 
+border-radius: 8px; 
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+margin-bottom: 15px; 
+margin-top: 38.5px; 
+} 
+.section2 { 
+padding: 50px; 
+background-color: white; 
+border-radius: 8px; 
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+margin-bottom: 15px; 
+margin-top: 100px; 
+} 
+/* See More Button */ 
+.see-more-container { 
+text-align: center; /* Center the button */ 
+margin-top: 20px; /* Add some space above */ 
+} 
+.see-more-button { 
+display: inline-block; 
+padding: 10px 20px; 
+background-color: #175aeb;  
+color: white;  
+text-decoration: none;  
+border-radius: 20px; 
+font-size: 1.2em; /* Font size */ 
+transition: background-color 0.3s ease;  
+} 
+.see-more-button:hover { 
+background-color: #0639c5; /* Darker blue on hover */ 
+} 
+.footer-divider { 
+height: 5px; /* Height of the orange line */ 
+background-color: #79766e; /* Orange color */ 
+width: 100%; /* Full width */ 
+margin: 0; 
+} 
+footer { 
+background-color: #0c81cf;
+color: rgb(15, 15, 15); 
+text-align: center; 
+padding: 10px; 
+position: relative; 
+bottom: 0; 
+width: 98.7%; 
+} 
+.slider { 
+width: 100%; 
+position: relative; /* Position relative for absolute positioning of 
+text overlay */ 
+overflow: hidden; /* Hide overflow to keep the slides inside the 
+slider */ 
+border-radius: 0; /* Rounded corners */ 
+} 
+.slides { 
+display: flex; /* Arrange slides in a row */ 
+transition: transform 0.5s ease; /* Smooth transition for sliding 
+*/ 
+} 
+.slide { 
+position: relative; /* Position relative for absolute positioning of 
+text overlay */ 
+min-width: 100%; /* Each slide takes full width of the slider */ 
+} 
+.slides img { 
+width: 100%; /* Make images full width */ 
+border-radius: 0; /* Rounded corners */ 
+height: 600px; 
+} 
+/* Text overlay styling */ 
+.text-overlay { 
+position: absolute; /* Ensure it's positioned relative to the .slide 
+container */ 
+top: 50%; /* Position it halfway down the slide */ 
+left: 50%; /* Position it halfway across the slide */ 
+transform: translate(-50%, -50%); /* Shift it by 50% of its own 
+height and width to truly center it */ 
+color: white; /* Text color */ 
+font-size: 32px; /* Font size */ 
+background: #1607e2; -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+padding: 50px; /* Padding around the text */ 
+border-radius: 5px; /* Optional: Rounded corners */ 
+text-align: center; /* Center the text within the box */ 
+} 
+#contact { 
+display: flex; 
+justify-content: space-between; 
+margin: 38px auto; 
+padding: 50px; 
+background-color: #f9f9f9; 
+border-radius: 8px; 
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+width: 50%; 
+max-width: 1200px; 
+} 
+.contact-content { 
+display: flex; 
+justify-content: space-between; 
+width: 100%; 
+} 
+.contact-form { 
+width: 48%; /* Set width to 48% to create space for the details 
+container */ 
+display: flex; 
+flex-direction: column; 
+} 
+.contact-form label { 
+font-weight: bold; 
+margin-bottom: 5px;
+font-size:20px;
+font-family: 'Trebuchet MS', sans-serif; 
+} 
+.contact-form input, .contact-form textarea { 
+margin-bottom: 10px; 
+padding: 12px; 
+border-radius: 20px; 
+border: 1px solid #282c34; 
+width: 100%; /* Ensure inputs take full width */ 
+box-sizing: border-box; 
+} 
+.contact-form button { 
+background-color: #0049e6; 
+color: white; 
+padding: 12px; 
+border: none; 
+border-radius: 20px; 
+cursor: pointer; 
+width: 100%; /* Make the button stretch across the form */ 
+box-sizing: border-box; 
+font-family: 'Trebuchet MS', sans-serif; 
+font-size: 15px; 
+margin-top: 5px; 
+} 
+.contact-form button:hover { 
+background-color: #0542c7; 
+} 
+#contact h2 { 
+text-align: center; 
+margin-bottom: 20px; 
+margin-top: 0; 
+font-size: 35px; 
+background: #2242f7; -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+} 
+/* Contact Details Styling */ 
+.contact-details { 
+width: 40%; /* Set width to 48% for the details container */ 
+padding: 20px; 
+background-color: #282c34; 
+border-radius: 8px; 
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+color: #ffffff; 
+font-size: 20px; 
+} 
+.contact-details h3 { 
+font-size: 35px; 
+margin-top: 0%; 
+} 
+.contact-background { 
+font-family: Trebuchet MS, sans-serif; 
+margin: 0; 
+padding: 0; 
+background: linear-gradient(270deg, #08cf62, #04e989, #05e5ec, rgb(0, 60, 255)); 
+/* Three-color gradient */ 
+background-size: 600% 600%; /* Adjusted size for better 
+visibility */ 
+animation: gradientAnimation 15s ease infinite; /* Animation 
+effect */ 
+} 
+/* Gradient animation */ 
+@keyframes gradientAnimation { 
+0% { background-position: 0% 50%; } 
+50% { background-position: 100% 50%; } 
+100% { background-position: 0% 50%; } 
+} 
+.error { 
+font-family: Arial, sans-serif; 
+color: #ee5f5f; 
+font-size: 14px; 
+font-weight: normal; 
+display: block; /* Ensure the error message is displayed on a 
+new line */ 
+margin-top: 0; /* Add some space between the input and the 
+error */ 
+} 
+#gallery h2 { 
+text-align: center; 
+margin-bottom: 20px; 
+margin-top: 0; 
+font-size: 50px; 
+background: #1a28e9; -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+} 
+.gallery { 
+display: flex; 
+flex-wrap: wrap; /* Allows images to wrap to the next line if they 
+don’t fit */ 
+justify-content: center; /* Centers the images */ 
+gap: 20px; /* Adds spacing between images */ 
+padding: 15px; /* Adds padding around the gallery */ 
+} 
+.gallery-item { 
+text-align: center; 
+width: 350px; 
+} 
+/* Styling for the gallery thumbnails */ 
+.gallery img { 
+width: 100%; 
+height: 200px; 
+margin: 10px; 
+border-radius: 5px; 
+cursor: pointer; /* Adds a pointer to indicate clickability */ 
+transition: transform 0.3s ease; 
+} 
+.gallery img:hover { 
+transform: scale(1.05); 
+} 
+.image-description { 
+font-size: 16px; 
+color: #333; 
+margin-top: 8px; 
+} 
+.lightbox { 
+display: none; /* Hidden by default */ 
+position: fixed; /* Stays in place */ 
+z-index: 1001; /* Sits on top of everything else */ 
+left: 0; 
+top: 0; 
+width: 100%; 
+height: 100%; 
+background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black 
+background */ 
+} 
+.lightbox-content { 
+display: block; 
+margin: auto; 
+max-width: 80%; /* Resizes the image to fit within the screen */ 
+max-height: 80%; 
+border-radius: 8px; 
+margin-top: 5%; /* Vertically centers the image */ 
+z-index: 1002; /* Ensure image has a higher z-index than the 
+background */ 
+} 
+.close { 
+position: absolute; 
+top: 20px; 
+right: 30px; 
+color: white; 
+font-size: 40px; 
+font-weight: bold;
+cursor: pointer;
+z-index: 1003; /* Ensure close button is on top */ 
+} 
+.close:hover, .close:focus { 
+color: #bbb; 
+text-decoration: none; 
+cursor: pointer; 
+} 
+/* Previous and next buttons */ 
+.prev, .next { 
+cursor: pointer; 
+position: absolute; 
+top: 50%; 
+width: auto; 
+padding: 16px; 
+margin-top: -22px; 
+color: white; 
+font-weight: bold; 
+font-size: 30px; 
+transition: 0.6s ease; 
+border-radius: 0 3px 3px 0; 
+user-select: none; 
+z-index: 1003; /* Ensure it stays above the image */ 
+} 
+/* Position the "next" button to the right */ 
+.next { 
+right: 0; 
+border-radius: 3px 0 0 3px; 
+} 
+/* Position the "prev" button to the left */ 
+.prev { 
+left: 0; 
+border-radius: 3px 0 0 3px; 
+} 
+/* On hover, add a slight dark background */ 
+.prev:hover, .next:hover { 
+background-color: rgba(0,0,0,0.8); 
+} 
+/* Skills Section */ 
+#skills { 
+max-width: 1000%; 
+margin: 20px; 
+padding: 50px; 
+background: linear-gradient(270deg, #04e67c, #06e061, #00ccff, rgb(20, 55, 211)); 
+/* Three-color gradient */ 
+background-size: 600% 600%; /* Adjusted size for better 
+visibility */ 
+animation: gradientAnimation 15s ease infinite; /* Animation 
+effect */ 
+border-radius: 8px; 
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+} 
+/* Gradient animation */ 
+@keyframes gradientAnimation { 
+0% { background-position: 0% 50%; } 
+50% { background-position: 100% 50%; } 
+100% { background-position: 0% 50%; } 
+} 
+.tab { 
+overflow: hidden; 
+} 
+.tab button { 
+background-color: #1613c4; 
+border: none; 
+cursor: pointer; 
+padding: 10px 20px; 
+transition: 0.3s;
+font-size: 17px; 
+color: white;
+} 
+.tab button:hover { 
+background-color: #2a3c61; 
+color: #eff4f7; 
+} 
+.tab button.active { 
+background-color: #414344; 
+color: white; 
+} 
+.tabcontent { 
+display: none; 
+padding: 20px; 
+border: 1px solid #ddd; 
+border-radius: 4px; 
+background: white; 
+} 
+.goal-grid { 
+display: grid; 
+grid-template-columns: repeat(2, 1fr); /* Two cards per row */ 
+gap: 20px; 
+padding: 20px; 
+} 
+.goal-card { 
+background-color: #282c34; 
+border-radius: 12px; 
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+transition: transform 0.3s, box-shadow 0.3s; 
+padding: 20px; 
+position: relative; 
+overflow: hidden; 
+cursor: pointer; 
+color: #ffffff; 
+} 
+.goal-card:hover { 
+transform: translateY(-5px); 
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+} 
+.goal-header { 
+color: white; 
+padding: 15px; 
+border-radius: 8px 8px 0 0; 
+font-size: 1.8em; 
+text-align: center; 
+} 
+.goal-details { 
+display: none; /* Hidden by default */ 
+margin-top: 10px; 
+color: #ffffff; 
+font-size: 1em; 
+line-height: 1.5; 
+} 
+.goal-details.active { 
+display: block; /* Show when active */ 
+animation: fadeIn 0.3s ease-in; 
+} 
+@keyframes fadeIn { 
+from { 
+opacity: 0; 
+} 
+to { 
+opacity: 1; 
+} 
+} 
+/* Container for all funfact cards */ 
+.funfacts-section{ 
+padding: 30px;
+margin: 100px 20px; /* Add top margin to prevent content being 
+hidden behind the fixed header and nav */ 
+background-color: white; 
+border-radius: 8px; 
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+} 
+.funfact-container { 
+display: flex; 
+gap: 20px; /* Space between each card */ 
+justify-content: center; /* Centers cards horizontally */ 
+align-items: center; /* Aligns cards vertically */ 
+padding: 20px; 
+margin-top: 0px; 
+} 
+.funfact-card { 
+width: 300px; 
+height: 200px; 
+perspective: 1000px; /* Enables the 3D effect */ 
+position: relative; 
+} 
+.funfact-inner { 
+width: 100%; 
+height: 100%; 
+position: relative; 
+transition: transform 0.8s ease-in-out; /* Smooth flip transition 
+*/ 
+transform-style: preserve-3d; /* Ensures child elements are in 
+3D space */ 
+} 
+.funfact-card:hover .funfact-inner { 
+transform: rotateY(180deg); /* Flips the card when hovered */ 
+} 
+.funfact-front, .funfact-back { 
+position: absolute; 
+width: 100%; 
+height: 100%; 
+backface-visibility: hidden; /* Ensures the back is hidden when 
+not flipped */ 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+font-size:25px; 
+color: #fff; 
+border-radius: 10px; 
+text-align: center; 
+margin-bottom: 20px; 
+} 
+/* Front of the card */ 
+.funfact-front { 
+background-color: #282c34; 
+} 
+/* Back of the card */ 
+.funfact-back { 
+background-color: #0d75bb; 
+transform: rotateY(180deg); /* Initially hidden by rotating it */ 
+} 
+.container { 
+display: flex; 
+justify-content: center; 
+align-items: center; 
+gap: 40px; /* Space between image and quote */ 
+max-width: 100%; 
+margin: 20px 100px; 
+padding: 20px; 
+border-radius: 8px; 
+background: linear-gradient(270deg, #06eb6d, #04e77d, #00ccff, rgb(24, 85, 214)); 
+/* Three-color gradient */ 
+background-size: 600% 600%; /* Adjusted size for better 
+visibility */ 
+animation: gradientAnimation 15s ease infinite; /* Animation 
+effect */ 
+} 
+ 
+.image-section img { 
+max-width: 100%; 
+height: auto; 
+border-radius: 8px; 
+width: 500px; /* Adjust image size as needed */ 
+} 
+ 
+.quote-section { 
+max-width: 50%; /* Adjust as needed */ 
+text-align: left; 
+} 
+ 
+.quote-section h1 { 
+font-size: 36px; 
+font-weight: bold; 
+color: #000000; 
+margin-bottom: 20px; 
+} 
+ 
+.quote-section p { 
+font-size: 18px; 
+color: #000000; 
+line-height: 1.6; 
+margin-bottom: 20px; 
+} 
+ 
+.quote-section blockquote { 
+font-style: italic; 
+margin: 0; 
+padding: 20px 50px; 
+background-color: transparent; /* Background color for the 
+quote */ 
+border-bottom: 5px solid #282c34; 
+border-top: 5px solid #282c34; 
+border-radius: 8px; 
+text-align: center; 
+color: #1d1c1c; 
+font-size: 20px; 
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow 
+for effect */ 
+} 
+ 
+/* Logout button styling */ 
+.logout-button { 
+background-color: #30bae4; 
+color: rgb(0, 0, 0); 
+padding: 15px 10px; 
+text-decoration: none; 
+font-weight: bold; 
+font-size: 20px; 
+position: absolute; 
+right: 15px; /* Aligns to the right-most part of the nav bar */ 
+} 
+ 
+.logout-button:hover { 
+background-color: #ffffff; 
+color: #003cff; 
+}

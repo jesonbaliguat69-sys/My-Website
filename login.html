@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Login & Sign Up Page</title>
+ <link rel="stylesheet" href="login style.css">
+</head>
+<body>
+ <div class="form-container">
+ <h2 id="formTitle">Login</h2>
+ <form id="authForm">
+    <label for="username">Username</label>
+    <input type="text" id="username" required>
+    
+    <label for="password">Password</label>
+    <input type="password" id="password" required>
+    
+    <div class="show-password" id="showPasswordContainer">
+        <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()">
+        <label for="showPassword">Show Password</label>
+    </div>
+    
+    <label for="confirmPassword" id="confirmPasswordLabel" style="display: none;">Confirm Password</label>
+    <input type="password" id="confirmPassword" style="display: none;">
+    
+    <p id="passwordMatchMessage" style="font-size: 14px; color: red; display: none;"></p>
+    
+    <button type="submit">Log In</button>
+    
+    <p id="errorMessage"></p>
+    
+    <p id="toggleText">Don't have an account? <a href="#" onclick="toggleForm()">Sign Up</a></p>
+ </form>
+ </div>
+
+<script>
+// This listener waits for the entire HTML document to be loaded and parsed
+document.addEventListener('DOMContentLoaded', function() {
+
+    // --- GLOBAL STATE ---
+    // Note: The localStorage key is 'userDB' and will be used to store/retrieve users.
+    
+    // --- 1. Get DOM Elements ---
+    // These now correctly point to the updated HTML elements.
+    const formTitle = document.getElementById('formTitle');
+    const confirmPassword = document.getElementById('confirmPassword');
+    const confirmPasswordLabel = document.getElementById('confirmPasswordLabel');
+    // We use querySelector('button') as there is only one button
+    const submitButton = document.querySelector('button'); 
+    const toggleText = document.getElementById('toggleText');
+    const showPasswordContainer = document.getElementById('showPasswordContainer');
+    const authForm = document.getElementById('authForm');
+    const errorMessage = document.getElementById('errorMessage');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const matchMessage = document.getElementById('passwordMatchMessage');
+
+    let isLogin = true; // State tracker (initial state is Login)
+
+    // --- 2. Toggling Forms (Sign Up / Login) ---
+    function toggleForm() {
+        isLogin = !isLogin; // Flip the state
+        
+        // Clear form fields and errors immediately upon toggle
+        authForm.reset();
+        errorMessage.textContent = ''; 
+        matchMessage.style.display = 'none';
+
+        if (!isLogin) { // Switching to Sign-Up form
+            formTitle.textContent = 'Sign Up';
+            confirmPassword.style.display = 'block';
+            confirmPasswordLabel.style.display = 'block';
+            submitButton.textContent = 'Sign Up';
+            toggleText.innerHTML = 'Already have an account? <a href="#" onclick="toggleForm()">Login</a>';
+            showPasswordContainer.style.visibility = 'hidden'; // Hide without shifting layout
+        } else { // Switching to Login form
+            formTitle.textContent = 'Login';
+            confirmPassword.style.display = 'none';
+            confirmPasswordLabel.style.display = 'none';
+            submitButton.textContent = 'Log In';
+            toggleText.innerHTML = 'Don\'t have an account? <a href="#" onclick="toggleForm()">Sign Up</a>';
+            showPasswordContainer.style.visibility = 'visible';
+        }
+    }
+
+    // --- 3. Password Visibility Toggle (Exposed globally for onclick) ---
+    window.togglePasswordVisibility = function() {
+        // Toggle the input type between 'password' and 'text'
+        passwordInput.type = (passwordInput.type === 'password' ? 'text' : 'password');
+    }
+
+    // --- 4. Password Match Check (for Sign Up) ---
+    function checkPasswordMatch() {
+        const password = passwordInput.value;
+        const confirmPass = confirmPassword.value;
+        
+        // Only show the message when in Sign Up mode
+        if (!isLogin) { 
+            if (confirmPass === "") {
+                matchMessage.style.display = 'none';
+            } else if (confirmPass === password) {
+                matchMessage.textContent = 'Passwords match';
+                matchMessage.style.color = 'green';
+                matchMessage.style.display = 'block';
+            } else {
+                matchMessage.textContent = 'Passwords do not match';
+                matchMessage.style.color = 'red';
+                matchMessage.style.display = 'block';
+            }
+        }
+    }
+    
+    // Attach listener for password matching
+    // This is safe now because confirmPassword is guaranteed to be an element
+    confirmPassword.addEventListener('input', checkPasswordMatch);
+
+    // --- 5. Form Submission Handler (Exposed globally for onclick) ---
+    window.handleSubmit = function() {
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value;
+        const confirmPass = confirmPassword.value;
+
+        // Retrieve the current user database (or initialize an empty one)
+        const users = JSON.parse(localStorage.getItem('userDB')) || {};
+
+        errorMessage.textContent = ''; // Clear previous error
+
+        if (!username || !password) {
+            errorMessage.textContent = 'Please fill out all fields.';
+            return;
+        }
+
+        if (isLogin) {
+            // --- LOGIN LOGIC ---
+            if (users[username] && users[username] === password) {
+                // SUCCESS: Credentials matched
+                alert('Welcome! Successfully logged in.'); 
+                // Redirect to index.html after successful login
+                window.location.href = 'index.html'; 
+            } else {
+                // FAILURE: Invalid credentials
+                errorMessage.textContent = 'Invalid username or password';
+                passwordInput.value = ''; // Clear password field for security
+            }
+        } else {
+            // --- SIGN UP LOGIC ---
+            if (password !== confirmPass) {
+                errorMessage.textContent = 'Passwords do not match.';
+                return;
+            }
+
+            if (users[username]) {
+                // Check if username already exists
+                errorMessage.textContent = 'Username already taken. Please login.';
+                return;
+            }
+
+            // SUCCESS: Store the new user
+            users[username] = password;
+            localStorage.setItem('userDB', JSON.stringify(users));
+
+            // Corrected Code (with redirect)
+alert('Account created successfully! Redirecting to homepage.');
+window.location.href = 'index.html';
+            // Clear form and switch back to login mode
+            authForm.reset();
+            toggleForm(); 
+        }
+    }
+    
+    // Expose the toggleForm function globally (so the onclick in the HTML works)
+    window.toggleForm = toggleForm;
+
+    // Attach the handleSubmit function to the form's submit event
+    authForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission (page refresh)
+        handleSubmit();
+    });
+});
+</script>
+</body>
+</html>

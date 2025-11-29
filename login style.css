@@ -1,0 +1,99 @@
+/* Basic Reset */
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+/* Body Styling */
+body {
+ font-family: Trebuchet MS, sans-serif;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+ margin: 0;
+ background: linear-gradient(270deg, #0ee68c, #0bce5c, #00ccff, rgb(28, 28, 238)); /* Three-color gradient */
+ background-size: 600% 600%; /* Adjusted size for 
+better visibility */
+ animation: gradientAnimation 15s ease infinite; /* 
+Animation effect */
+ color: #ffffff;
+}
+/* Keyframes for the gradient animation */
+@keyframes gradientAnimation {
+ 0% { background-position: 0% 50%; }
+ 50% { background-position: 100% 50%; }
+ 100% { background-position: 0% 50%; }
+}
+/* Fixed-size, square Container Styling */
+.form-container {
+ width: 350px;
+ height: 480px; /* Fixed height for square-like shape */
+ padding: 25px;
+ background-color: #ffffff;
+ border-radius: 10px;
+ box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+ text-align: center;
+ color: #282c34;
+ position: relative; /* To layer properly */
+ z-index: 1; /* Ensure it appears above the gradient */
+}
+.form-container h2 {
+ margin-bottom: 20px;
+ color: #1536f3;
+ font-size: 50px;
+}
+/* Label Styling */
+label {
+ display: block;
+ text-align: left;
+ margin: 10px 0 5px;
+ color: #282c34;
+ font-size: 15px;
+}
+/* Input Field Styling */
+input[type="text"], input[type="password"] {
+ width: 100%;
+ padding: 10px;
+ margin-bottom: 10px;
+ border: 1px solid #ddd;
+ border-radius: 5px;
+ outline: none;
+ font-size: 16px;
+}
+/* Button Styling */
+button {
+ width: 100%;
+ padding: 12px;
+ background-color: #0745f0;
+ color: #ffffff;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ font-size: 16px;
+ font-family: Trebuchet MS, sans-serif;
+ transition: background-color 0.3s;
+ margin: 5px;
+}
+button:hover {
+ background-color: #0d11f8;
+}
+/* Error Message Styling */
+#errorMessage {
+ color: #ff605a;
+ margin-top: 5px;
+ font-size: 14px;
+}
+/* Show Password Container */
+.show-password {
+ display: flex;
+ align-items: center;
+ margin-top: -10px; /* Adjust spacing as needed */
+ margin-bottom: 10px; /* Consistent spacing for 
+toggling */
+ font-size: 14px;
+}
+.show-password input[type="checkbox"] {
+ margin-right: 5px; 
+/* Space between checkbox and label */
+}
